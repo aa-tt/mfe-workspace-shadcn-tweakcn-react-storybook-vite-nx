@@ -1,0 +1,23 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "composite": false,
+    "jsx": "react-jsx",
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": ".",
+    "paths": {
+      "@mfe-workspace/shared-ui": ["../../libs/shared-ui/src/index.ts"],
+      "@mfe-workspace/shared-ui/styles": ["../../libs/shared-ui/src/index.css"],
+      "@/*": ["../../libs/shared-ui/src/*"],
+      "auth/App": ["./src/vite-env.d.ts"],
+      "dashboard/App": ["./src/vite-env.d.ts"],
+      "settings/App": ["./src/vite-env.d.ts"]
+    }
+  },
+  "include": ["src/**/*"],
+  "references": [
+    { "path": "../../libs/shared-ui/tsconfig.json" }
+  ]
+}
