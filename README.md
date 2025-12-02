@@ -2,6 +2,13 @@
 
 A modern, fully-configured React + TypeScript application showcasing **ShadCN UI** components with **TweakCN** theme customization support. Built with Vite for blazing-fast development.
 
+**Motivation for Nx+Vite**
+* **Monorepo vs Separate Repository Monorepo:** All apps and libraries live in one repository. Unified dependencies, tooling, and workflows. Nx is commonly used for management. * **Separate Repository:** Each app/library has its own repo. Dependencies and scripts are managed independently. Code sharing and updates require manual coordination. 
+* **Build Tools Nx:** Monorepo build system for managing multiple React apps/libraries, advanced caching, and code generation.
+* **Webpack:** Traditional bundler for React projects, often used with Babel. Suitable for single projects or small codebases.
+* **Vite:** Modern, fast build tool and dev server. Replaces Webpack for faster development and simpler configuration in React projects. 
+* **Current Setup** This project uses Nx for monorepo management and Vite for building React apps. For non-monorepo setups, you can use React with Babel and Webpack, but lose Nx's workflow and Vite's speed
+
 ## 🚀 Tech Stack
 
 - **[React](https://react.dev/)** - UI library
