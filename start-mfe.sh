@@ -42,14 +42,31 @@ if [ ! -d "node_modules" ]; then
 fi
 
 echo ""
-echo "Starting all applications:"
+echo "Building all MFE applications..."
+echo ""
+
+# Build all MFE apps first (required for Module Federation)
+npm run build:mfe
+
+if [ $? -ne 0 ]; then
+    echo "❌ Build failed. Please check the errors above."
+    exit 1
+fi
+
+echo ""
+echo "✅ Build complete!"
+echo ""
+echo "Starting all applications in preview mode:"
 echo "  📦 Host (Shell)    -> http://localhost:5000"
 echo "  🔐 Auth MFE        -> http://localhost:5001"
 echo "  📊 Dashboard MFE   -> http://localhost:5002"
 echo "  ⚙️  Settings MFE    -> http://localhost:5003"
 echo ""
+echo "⚠️  NOTE: Module Federation requires preview mode (built assets)"
+echo "    Changes to code will NOT hot-reload. Rebuild to see changes."
+echo ""
 echo "Wait for all apps to start, then open: http://localhost:5000"
 echo ""
 
-# Start all apps
-npm run dev
+# Start all apps in preview mode
+npm run preview:mfe
